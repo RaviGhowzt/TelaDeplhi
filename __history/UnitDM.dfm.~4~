@@ -1,0 +1,55 @@
+object DM: TDM
+  Height = 564
+  Width = 687
+  object conexao: TFDConnection
+    Params.Strings = (
+      'Database=banco_talentos'
+      'User_Name=root'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 88
+    Top = 96
+  end
+  object dsFuncionarios: TDataSource
+    DataSet = tbFuncionarios
+    Left = 352
+    Top = 96
+  end
+  object tbFuncionarios: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = conexao
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = '`banco de talentos`.funcionarios'
+    Left = 224
+    Top = 96
+    object tbFuncionariosid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object tbFuncionariosnome: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 255
+    end
+    object tbFuncionariossobrenome: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'sobrenome'
+      Origin = 'sobrenome'
+      Size = 255
+    end
+    object tbFuncionarioscelular: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'celular'
+      Origin = 'celular'
+    end
+    object tbFuncionarioslinkedin: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'linkedin'
+      Origin = 'linkedin'
+      Size = 255
+    end
+  end
+end

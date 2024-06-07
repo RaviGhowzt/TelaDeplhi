@@ -1,0 +1,57 @@
+object DM: TDM
+  Height = 564
+  Width = 687
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=banco_talentos'
+      'User_Name=root'
+      'DriverID=MySQL')
+    Connected = True
+    LoginPrompt = False
+    Left = 80
+    Top = 88
+  end
+  object FDTable1: TFDTable
+    Active = True
+    IndexFieldNames = 'id'
+    Connection = FDConnection1
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = 'banco_talentos.funcionarios'
+    Left = 176
+    Top = 88
+    object FDTable1id: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+      ProviderFlags = [pfInWhere, pfInKey]
+    end
+    object FDTable1nome: TStringField
+      FieldName = 'nome'
+      Origin = 'nome'
+      Required = True
+      Size = 11
+    end
+    object FDTable1sobrenome: TStringField
+      FieldName = 'sobrenome'
+      Origin = 'sobrenome'
+      Required = True
+      Size = 11
+    end
+    object FDTable1celular: TStringField
+      FieldName = 'celular'
+      Origin = 'celular'
+      Required = True
+      Size = 11
+    end
+    object FDTable1linkedin: TStringField
+      FieldName = 'linkedin'
+      Origin = 'linkedin'
+      Required = True
+      Size = 11
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = FDTable1
+    Left = 264
+    Top = 96
+  end
+end

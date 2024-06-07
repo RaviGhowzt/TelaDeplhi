@@ -1,0 +1,90 @@
+object DM: TDM
+  Height = 480
+  Width = 640
+  object conexao: TFDConnection
+    Params.Strings = (
+      'Database=banco de talentos'
+      'User_Name=root'
+      'DriverID=MySQL')
+    LoginPrompt = False
+    Left = 64
+    Top = 64
+  end
+  object tbEmpresas: TFDTable
+    IndexFieldNames = 'id'
+    Connection = conexao
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = '`banco de talentos`.historico_empresas'
+    Left = 176
+    Top = 144
+    object tbEmpresasid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object tbEmpresasid_funcionario: TIntegerField
+      FieldName = 'id_funcionario'
+      Origin = 'id_funcionario'
+      Required = True
+    end
+    object tbEmpresasempresa: TIntegerField
+      FieldName = 'empresa'
+      Origin = 'empresa'
+      Required = True
+    end
+    object tbEmpresascargo: TIntegerField
+      FieldName = 'cargo'
+      Origin = 'cargo'
+      Required = True
+    end
+    object tbEmpresasdata_admissao: TDateField
+      FieldName = 'data_admissao'
+      Origin = 'data_admissao'
+      Required = True
+    end
+  end
+  object dsFuncionarios: TDataSource
+    DataSet = tbFuncionarios
+    Left = 272
+    Top = 64
+  end
+  object dsEmpresas: TDataSource
+    DataSet = tbEmpresas
+    Left = 280
+    Top = 152
+  end
+  object tbFuncionarios: TFDTable
+    IndexFieldNames = 'id'
+    Connection = conexao
+    ResourceOptions.AssignedValues = [rvEscapeExpand]
+    TableName = '`banco de talentos`.funcionarios'
+    Left = 168
+    Top = 72
+    object tbFuncionariosid: TFDAutoIncField
+      FieldName = 'id'
+      Origin = 'id'
+    end
+    object tbFuncionariosnome: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'nome'
+      Origin = 'nome'
+      Size = 255
+    end
+    object tbFuncionariossobrenome: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'sobrenome'
+      Origin = 'sobrenome'
+      Size = 255
+    end
+    object tbFuncionarioscelular: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'celular'
+      Origin = 'celular'
+    end
+    object tbFuncionarioslinkedin: TStringField
+      AutoGenerateValue = arDefault
+      FieldName = 'linkedin'
+      Origin = 'linkedin'
+      Size = 255
+    end
+  end
+end
